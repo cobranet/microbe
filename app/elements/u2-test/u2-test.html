@@ -1,0 +1,79 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="u2-test">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <div id="main">Main area</div>
+    <av-flatiron-director route="{{route}}"></av-flatiron-director>
+    <iron-ajax id="ajax" url="" handle-as="document"></iron-ajax>    
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'u2-test',
+	properties: {
+	    route: {
+		type: String,
+		notify: true,
+		observer: 'routeChanged'
+	    }
+	},
+	routeChanged: function(newValue,oldValue){
+	    var page = newValue.replace("!","");
+	    var params = page.split("?")[1];
+	    var pageName = page.split("?")[0];
+	    if (pageName == "") {
+		pageName = "home";
+	    }
+	    this.$.ajax.url = 'pages/' + pageName + '/' + pageName + '.html?' + params;
+	    this.$.ajax.generateRequest();
+	},
+	ready:function(){
+            var self = this;
+            self.$.ajax.addEventListener('response', function (response) {
+		try {
+                    self.async(function () {
+			
+			var links = response.detail.response.head.querySelectorAll("link");
+			console.log(links.length);
+			for (var i = 0; i <= links.length - 1; i++) {
+			    console.log(links[i]);
+                            if (!window.document.head.innerHTML.indexOf(links[i].href.toLowerCase()) 
+					     != -1) {
+                                    var l = document.createElement('link');
+                                    l.rel = 'import';
+                                    l.href = links[i].href.toLowerCase();
+                                    document.head.appendChild(l);
+                            }
+			}
+			
+			var l = document.createElement('div');
+			l.innerHTML = response.detail.response.body.innerHTML;
+			self.$.main.innerHTML = "";
+			self.$.main.appendChild(l);
+                    }, 0);
+		} catch (e) {
+		}
+            });
+	}
+
+    })})();
+  </script>
+</dom-module>
