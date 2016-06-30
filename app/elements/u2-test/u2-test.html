@@ -52,9 +52,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     self.async(function () {
 			
 			var links = response.detail.response.head.querySelectorAll("link");
-			console.log(links.length);
 			for (var i = 0; i <= links.length - 1; i++) {
-			    console.log(links[i]);
                             if (!window.document.head.innerHTML.indexOf(links[i].href.toLowerCase()) 
 					     != -1) {
                                     var l = document.createElement('link');

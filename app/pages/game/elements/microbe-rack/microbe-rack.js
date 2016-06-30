@@ -2,15 +2,15 @@
 (function() {
     'use strict';
     Polymer({
-      is: 'microbe-table',
+      is: 'microbe-rack',
 	properties: {
-	    table: {
+	    rack: {
 		type: Object,
 		notify: true
 	    }
 	},
-	_get_microbe:function(table,x,y){
-	    return table.cell(x,y);
+	_get_microbe:function(rack,x){
+	    return rack.cell(x);
 	}
 	
     });

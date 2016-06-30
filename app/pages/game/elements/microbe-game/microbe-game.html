@@ -12,16 +12,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../microbe-table/microbe-table.html">
+<link rel="import" href="../microbe-rack/microbe-rack.html">
 
 <dom-module id="microbe-game">
   <template>
-    <style>
+    <style include="iron-flex iron-flex-alignment">
       :host {
         display: block;
-      }
+      }      
     </style>
-    <microbe-table></microbe-table>
-    <div>Hello from Game <span>{{foo}}</span></div>
+    
+    <div class="layout horizontal wrap">
+      <microbe-table table="{{game.table}}"></microbe-table>
+      <microbe-rack  rack="{{game.player.rack}}"></microbe-rack>
+    </div>
   </template>
   <script src='microbe-game.js'></script>
 </dom-module>

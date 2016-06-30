@@ -11,30 +11,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../../bower_components/paper-card/paper-card.html">
-
-<dom-module id="microbe-card">
+<dom-module id="microbe-score">
   <template>
     <style>
       :host {
-          display: block;
+	  display: block;
+	  border: 1px solid green;
       }
     </style>
-    <paper-card elevaton="9">
-    <svg width$="{{_size(size)}}" height$="{{_size(size)}}">
-	
-	<image xlink:href="" xlink:href$="{{_image(microbe)}}" x$="{{_image_x(size,margin)}}" y$="{{_image_y(size,margin)}}" height$="{{_image_size(size,margin)}}" width$="{{_image_size(size,margin)}}"/>
-
-	<polygon points$="{{_points(size,margin,0)}}" fill$="{{_ccolor(microbe,0)}}"  />
-	<polygon points ="" points$="{{_points(size,margin,1)}}" fill$="{{_ccolor(microbe,1)}}"  />
-	<polygon points ="" points$="{{_points(size,margin,2)}}" fill$="{{_ccolor(microbe,2)}}"  />
-	<polygon points ="" points$="{{_points(size,margin,3)}}" fill$="{{_ccolor(microbe,3)}}"  />
-
-    </svg>
+    <paper-card elevation="10">
+      <div class="card-content">
+	Score
+      </div>
     </paper-card>
   </template>
   <script src="/microbe.js"></script>
-  <script src='microbe-card.js'></script>
-
-  <script>
-  </script>
+  <script src='microbe-score.js'></script>
 </dom-module>

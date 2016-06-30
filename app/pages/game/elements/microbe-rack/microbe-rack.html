@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../microbe-card/microbe-card.html">
-<dom-module id="microbe-table">
+<dom-module id="microbe-rack">
   <template>
     <style>
       :host {
@@ -25,35 +25,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	  <table>
 	      <tr>
  		  <td> 
-		      <microbe-card microbe="{{_get_microbe(table,0,0)}}"></microbe-card>
+		      <microbe-card microbe="{{_get_microbe(rack,0)}}"></microbe-card>
 		  </td>
 		  <td>
-		      <microbe-card microbe="{{_get_microbe(table,0,1)}}" ></microbe-card>
+		      <microbe-card microbe="{{_get_microbe(rack,1)}}" ></microbe-card>
 		  </td>
 		  <td>
-		      <microbe-card microbe="{{_get_microbe(table,0,2)}}"></microbe-card>
-		  </td>
-	      </tr>
-	      <tr>
- 		  <td> 
-		      <microbe-card microbe="{{_get_microbe(table,1,0)}}"></microbe-card>
-		  </td>
-		  <td>
-		      <microbe-card microbe="{{_get_microbe(table,1,1)}}" ></microbe-card>
-		  </td>
-		  <td>
-		      <microbe-card microbe="{{_get_microbe(table,1,2)}}"></microbe-card>
-		  </td>
-	      </tr>
-	      <tr>
- 		  <td> 
-		      <microbe-card microbe="{{_get_microbe(table,2,0)}}"></microbe-card>
-		  </td>
-		  <td>
-		      <microbe-card microbe="{{_get_microbe(table,2,1)}}" ></microbe-card>
-		  </td>
-		  <td>
-		      <microbe-card microbe="{{_get_microbe(table,2,2)}}"></microbe-card>
+		    <microbe-card microbe="{{_get_microbe(rack,2)}}"></microbe-card>
 		  </td>
 	      </tr>
 	 </table>
@@ -61,5 +39,5 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </paper-card>
   </template>
   <script src="/microbe.js"></script>
-  <script src='microbe-table.js'></script>
+  <script src='microbe-rack.js'></script>
 </dom-module>

@@ -2,16 +2,12 @@
 (function() {
     'use strict';
     Polymer({
-      is: 'microbe-table',
+      is: 'microbe-score',
 	properties: {
-	    table: {
+	    scores: {
 		type: Object,
 		notify: true
 	    }
-	},
-	_get_microbe:function(table,x,y){
-	    return table.cell(x,y);
 	}
-	
     });
 }());
