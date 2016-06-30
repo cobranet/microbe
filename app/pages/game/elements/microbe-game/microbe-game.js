@@ -8,7 +8,7 @@
 		type: Object,
 		notify: true
 	    },
-            foo: {
+            userimage: {
 		type: String,
 		value: 'microbe-game',
 		notify: true

@@ -17,12 +17,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style>
       :host {
 	  display: block;
-	  border: 1px solid green;
       }
+     .table-card {
+	 background-color: lightgray;
+	 padding: 10 10 10 10;
+	 }
     </style>
-    <paper-card elevation="10">
+    <paper-card elevation="10" class="table-card">
       <div class="card-content">
-	  <table>
+	  <table class="microbe-table">
 	      <tr>
  		  <td> 
 		      <microbe-card microbe="{{_get_microbe(table,0,0)}}"></microbe-card>

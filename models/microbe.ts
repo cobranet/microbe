@@ -16,7 +16,7 @@ module Microbe {
     }
     export class Player {
         public rack: Rack;
-        constructor(public name: string, public image: string) {
+        constructor(public name: string, public image: string, public id: string) {
             this.rack = new Rack();
         }
         add_card(x: number, card: MicrobeCard) {
