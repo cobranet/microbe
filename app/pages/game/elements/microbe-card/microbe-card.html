@@ -16,12 +16,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
     <style>
       :host {
-        display: block;
+          display: block;
+	  border: 2px solid black;
       }
     </style>
-    <span>MTYPE : {{microbe.mtype}}</span>
-    <div>Hello from <span>{{_image(microbe)}}</span></div>
-    <iron-image src="/blue.png"></iron-image>
+    <paper-card>
+      <span>{{y_upper_left(size)}}</span>
+      <div class="card-content">
+	<svg height="10" width="10" x="0" y="0">
+	  <circle cx="10" cy="10" r="10" fill="red" />
+	</svg>
+	<iron-image src="/blue.png" height="{{image_size(size)}}" width="{{image_size(size)}}" sizing="contain" ></iron-image>
+	</div>
+    </paper-card>
   </template>
   <script src="/microbe.js"></script>
   <script src='microbe-card.js'></script>

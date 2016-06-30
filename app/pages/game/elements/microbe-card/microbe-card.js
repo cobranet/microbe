@@ -8,14 +8,18 @@
 		type: Object,
 		notify: true
 	    },
-            foo: {
-		type: String,
-		value: 'microbe-card',
+            size: {
+		type: Number,
+		value: 10,
 		notify: true
             }
 	},
 	_image: function(microbe){
 	    return microbe.image();
+	},
+	image_size: function(size){
+	    return size*10;
 	}
+	
     });
 }());

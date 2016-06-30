@@ -11,17 +11,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../../bower_components/paper-card/paper-card.html">
-<link rel="import" href="../microbe-table/microbe-table.html">
-
-<dom-module id="microbe-game">
+<link rel="import" href="../microbe-card/microbe-card.html">
+<dom-module id="microbe-table">
   <template>
     <style>
       :host {
-        display: block;
+          display: block;
       }
     </style>
-    <microbe-table></microbe-table>
-    <div>Hello from Game <span>{{foo}}</span></div>
+    <paper-card elevation="10">
+      <div class="card-content">
+	  <table>
+	      <tr>
+ 
+		  <td> 
+		      <microbe-card></microbe-card></td> <td><microbe-card></microbe-card></td><td><microbe-card></microbe-card></td>
+	      </tr>
+	      <tr>
+		  <td><microbe-card></microbe-card></td> <td><microbe-card></microbe-card></td><td><microbe-card></microbe-card></td>
+	      </tr>
+	      <tr>
+		  <td><microbe-card></microbe-card></td> <td><microbe-card></microbe-card></td><td><microbe-card></microbe-card></td>
+	      </tr>
+	  </table>
+      </div>
+    </paper-card>
   </template>
-  <script src='microbe-game.js'></script>
+  <script src="/microbe.js"></script>
+  <script src='microbe-table.js'></script>
 </dom-module>
