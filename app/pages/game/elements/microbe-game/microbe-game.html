@@ -24,9 +24,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
     
     <div class="layout horizontal wrap">
-      <microbe-table table="{{game.table}}"></microbe-table>
+      <div class="layout vertical wrap">
+	<microbe-score scores="{{_scores(game.table)}}" size="80"  images="{{_images(game)}}"></microbe-score>
+	<microbe-table table="{{game.table}}"></microbe-table>
+      </div>
       <microbe-player  player="{{game.player}}"></microbe-player>
-      <microbe-score  player="{{game.player}}"></microbe-score>
     </div>
   </template>
   <script src='microbe-game.js'></script>

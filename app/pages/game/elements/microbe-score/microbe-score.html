@@ -16,13 +16,58 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style>
       :host {
 	  display: block;
-	  border: 1px solid green;
+	  background-color: lightgray;
       }
+     .scr {
+	 position: relative;
+     }
+     h1 {
+	 position: absolute; 
+	 top: -10px;
+	 left: 0; 
+	 width: 100%;
+	 text-align: center;
+	 color: white;
+     }
+
     </style>
     <paper-card elevation="10">
-      <div class="card-content">
-	Score
-      </div>
+	<table>
+	    <tr>
+		<td>
+		    <paper-card>
+		    <div class="scr"> 
+			<image src$="{{_image(images,0)}}" width$="{{_image_size(size)}}" height$="{{_image_size(size)}}"/>
+			<h1>{{_score(scores,0)}}</h1>
+		    </div>
+		    </paper-card>
+		</td>
+		<td>
+		    <paper-card>
+		    <div class="scr"> 
+			<image src$="{{_image(images,1)}}" width$="{{_image_size(size)}}" height$="{{_image_size(size)}}"/>
+			<h1>{{_score(scores,1)}}</h1>
+		    </div>
+		    </paper-card>
+		</td>
+		<td>
+		    <paper-card>
+		    <div class="scr"> 
+			<image src$="{{_image(images,2)}}" width$="{{_image_size(size)}}" height$="{{_image_size(size)}}"/>
+			<h1>{{_score(scores,2)}}</h1>
+		    </div>
+		    </paper-card>
+		</td>
+		<td>
+		    <paper-card>
+		    <div class="scr"> 
+			<image src$="{{_image(images,3)}}" width$="{{_image_size(size)}}" height$="{{_image_size(size)}}"/>
+			<h1>{{_score(scores,3)}}</h1>
+		    </div>
+		    </paper-card>
+		</td>
+	    </tr>
+	</table>
     </paper-card>
   </template>
   <script src="/microbe.js"></script>

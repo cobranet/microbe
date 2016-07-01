@@ -17,9 +17,10 @@ var Microbe;
     }());
     Microbe.Rack = Rack;
     var Player = (function () {
-        function Player(name, image) {
+        function Player(name, image, id) {
             this.name = name;
             this.image = image;
+            this.id = id;
             this.rack = new Rack();
         }
         Player.prototype.add_card = function (x, card) {
@@ -103,7 +104,7 @@ var Microbe;
                     this.table.set_cell(i, k, this.cards[this.deck.pop()]);
                 }
             }
-            this.player = new Player("bratislav", "none");
+            this.player = new Player("bratislav", "none", "e12434324");
             for (var i = 0; i < 3; i++) {
                 this.player.add_card(i, this.cards[this.deck.pop()]);
             }
@@ -118,9 +119,13 @@ var Microbe;
                 a[j] = x;
             }
         };
+        Game.prototype.microbe_images = function () {
+            return Game.microbeImages;
+        };
         Game.prototype.microbes = function (which) {
             return this.cards[which];
         };
+        Game.microbeImages = ["blue.png", "red.png", "yellow.png", "green.png"];
         Game.all_cards = [
             { mtype: 0, arr: [0, 1, 2, 3] },
             { mtype: 1, arr: [3, 1, 0, 2] },

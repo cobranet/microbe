@@ -85,6 +85,7 @@ module Microbe {
     }
 
     export class Game {
+        static microbeImages: Array<String> = ["blue.png", "red.png", "yellow.png", "green.png"];
         public cards: Array<MicrobeCard>;
         public game_id: number = 1;
         public table: Table;
@@ -163,7 +164,7 @@ module Microbe {
                     this.table.set_cell(i, k, this.cards[this.deck.pop()]);
                 }
             }
-            this.player = new Player("bratislav", "none");
+            this.player = new Player("bratislav", "none", "e12434324");
             for (var i: number = 0; i < 3; i++) {
                 this.player.add_card(i, this.cards[this.deck.pop()]);
             }
@@ -179,7 +180,9 @@ module Microbe {
                 a[j] = x;
             }
         }
-
+        microbe_images(): Array<String> {
+            return Game.microbeImages;
+        }
         microbes(which: number) {
             return this.cards[which];
         }
