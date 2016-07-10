@@ -17,7 +17,21 @@
 		type: Number,
 		value: 40,
 		notify: true
-            }
+            },
+	    trig: {
+		type: Number,
+		notify: true,
+		value: -2
+	    },
+	    orient: {
+		type: String
+	    }
+	},
+	_orient: function(trig){
+	    if (this.microbe ){ 
+		return this.microbe.pos;
+	    }
+	    return "up";
 	},
 	_image: function(microbe){
 	    return "/" + microbe.image();
@@ -31,6 +45,8 @@
 		return " " + size + ",0"  + "," + size + "," + cs + "," + (size-cs) + ",0";
             case 2:
  		return "0," + size +  ",0"  + "," + (size-cs) + "," + cs + "," + size ;
+            case 3:
+ 		return size +  ","  + size +   "," + (size-cs) + "," + size + "," + size + "," + (size-cs) ;
 	    }
 	},
 	_image_x: function(size,margin){

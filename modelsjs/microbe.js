@@ -184,21 +184,54 @@ var Microbe;
     }());
     Microbe.Game = Game;
     var MicrobeCard = (function () {
-        function MicrobeCard(mtype, dots, pos) {
-            if (pos === void 0) { pos = 1; }
+        function MicrobeCard(mtype, dots) {
             this.mtype = mtype;
             this.dots = dots;
-            this.pos = pos;
+            this.pos = "up";
         }
         MicrobeCard.prototype.color = function (which) {
             return MicrobeCard.colors[this.dots[which]];
         };
         MicrobeCard.prototype.rotate = function (clockwise) {
             if (clockwise) {
-                this.dots = [this.dots[1], this.dots[2], this.dots[3], this.dots[0]];
+                switch (this.pos) {
+                    case "up": {
+                        this.pos = "right";
+                        break;
+                    }
+                    case "right": {
+                        this.pos = "down";
+                        break;
+                    }
+                    case "down": {
+                        this.pos = "left";
+                        break;
+                    }
+                    case "left": {
+                        this.pos = "up";
+                        break;
+                    }
+                }
             }
             else {
-                this.dots = [this.dots[3], this.dots[0], this.dots[1], this.dots[2]];
+                switch (this.pos) {
+                    case "up": {
+                        this.pos = "left";
+                        break;
+                    }
+                    case "right": {
+                        this.pos = "up";
+                        break;
+                    }
+                    case "down": {
+                        this.pos = "right";
+                        break;
+                    }
+                    case "left": {
+                        this.pos = "down";
+                        break;
+                    }
+                }
             }
         };
         MicrobeCard.prototype.image = function () {

@@ -27,14 +27,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="card-content">
 	  <table>
 	      <tr>
- 		  <td> 
-		      <microbe-card microbe="{{_get_microbe(rack,0)}}"></microbe-card>
+ 		  <td id="c0" on-tap="_select"> 
+		      <microbe-card size="{{_msize(sel,'c0')}}" trig="{{trig}}" microbe="{{_get_microbe(rack,0,trig)}}" ></microbe-card>
 		  </td>
-		  <td>
-		      <microbe-card microbe="{{_get_microbe(rack,1)}}" ></microbe-card>
+		  <td id = "c1" on-tap="_select">
+		      <microbe-card size="{{_msize(sel,'c1')}}" trig="{{trig}}" microbe="{{_get_microbe(rack,1,trig)}}" ></microbe-card>
 		  </td>
-		  <td>
-		    <microbe-card microbe="{{_get_microbe(rack,2)}}"></microbe-card>
+		  <td id = "c2" on-tap="_select">
+		    <microbe-card size="{{_msize(sel,'c2')}}" trig="{{trig}}" microbe="{{_get_microbe(rack,2,trig)}}"></microbe-card>
 		  </td>
 	      </tr>
 	 </table>

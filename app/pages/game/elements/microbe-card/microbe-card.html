@@ -18,18 +18,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
           display: block;
       }
+     .right {
+         -ms-transform: rotate(90deg); /* IE 9 */
+         -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+         transform: rotate(90deg);
+         transition: 300ms ease all;
+      }
+     .up {
+         -ms-transform: rotate(0deg); /* IE 9 */
+         -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+         transform: rotate(0deg);
+         transition: 300ms ease all;
+      }
+      .down {
+         -ms-transform: rotate(180deg); /* IE 9 */
+         -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+         transform: rotate(180deg);
+         transition: 300ms ease all;
+      }
+      .left {
+         -ms-transform: rotate(270deg); /* IE 9 */
+         -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+         transform: rotate(270deg);
+         transition: 300ms ease all;
+      }
+
+      
     </style>
-    <paper-card elevaton="9">
-    <svg width$="{{_size(size)}}" height$="{{_size(size)}}">
-	
-	<image xlink:href="" xlink:href$="{{_image(microbe)}}" x$="{{_image_x(size,margin)}}" y$="{{_image_y(size,margin)}}" height$="{{_image_size(size,margin)}}" width$="{{_image_size(size,margin)}}"/>
+    <paper-card class$="{{_orient(trig)}}" elevaton="9">
+	<svg width$="{{_size(size)}}" height$="{{_size(size)}}">
+	    
+	    <image xlink:href="" xlink:href$="{{_image(microbe)}}" x$="{{_image_x(size,margin)}}" y$="{{_image_y(size,margin)}}" height$="{{_image_size(size,margin)}}" width$="{{_image_size(size,margin)}}"/>
 
-	<polygon points$="{{_points(size,margin,0)}}" fill$="{{_ccolor(microbe,0)}}"  />
-	<polygon points ="" points$="{{_points(size,margin,1)}}" fill$="{{_ccolor(microbe,1)}}"  />
-	<polygon points ="" points$="{{_points(size,margin,2)}}" fill$="{{_ccolor(microbe,2)}}"  />
-	<polygon points ="" points$="{{_points(size,margin,3)}}" fill$="{{_ccolor(microbe,3)}}"  />
+	    <polygon points$="{{_points(size,margin,0)}}" fill$="{{_ccolor(microbe,0,trig)}}"  />
+	    <polygon points ="" points$="{{_points(size,margin,1)}}" fill$="{{_ccolor(microbe,1,trig)}}"  />
+	    <polygon points ="" points$="{{_points(size,margin,2)}}" fill$="{{_ccolor(microbe,2,trig)}}"  />
+	    <polygon points ="" points$="{{_points(size,margin,3)}}" fill$="{{_ccolor(microbe,3,trig)}}"  />
 
-    </svg>
+	</svg>
     </paper-card>
   </template>
   <script src="/microbe.js"></script>

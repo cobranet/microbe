@@ -190,16 +190,57 @@ module Microbe {
     export class MicrobeCard {
         static colors: Array<String> = ["white", "navy", "gold", "red"];
         static microbeImages: Array<String> = ["blue.png", "red.png", "yellow.png", "green.png"];
-        constructor(public mtype: number, public dots: Array<number>, public pos: number = 1) {
+        public pos: String;
+        constructor(public mtype: number, public dots: Array<number>) {
+            this.pos = "up";
         }
         color(which: number): String {
             return MicrobeCard.colors[this.dots[which]];
+
         }
         rotate(clockwise: boolean) {
+
             if (clockwise) {
-                this.dots = [this.dots[1], this.dots[2], this.dots[3], this.dots[0]];
+                switch (this.pos) {
+                    case "up": {
+                        this.pos = "right";
+                        break;
+                    }
+                    case "right": {
+                        this.pos = "down";
+                        break;
+                    }
+                    case "down": {
+                        this.pos = "left";
+                        break;
+                    }
+                    case "left": {
+                        this.pos = "up";
+                        break;
+                    }
+
+                }
             } else {
-                this.dots = [this.dots[3], this.dots[0], this.dots[1], this.dots[2]];
+
+                switch (this.pos) {
+                    case "up": {
+                        this.pos = "left";
+                        break;
+                    }
+                    case "right": {
+                        this.pos = "up";
+                        break;
+                    }
+                    case "down": {
+                        this.pos = "right";
+                        break;
+                    }
+                    case "left": {
+                        this.pos = "down";
+                        break;
+                    }
+
+                }
             }
         }
         image() {
